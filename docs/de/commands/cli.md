@@ -1,68 +1,37 @@
-# CLI-Referenz
-
-Die RUNE-CLI bietet alle Funktionen direkt vom Terminal aus.
-
-## Verwendung
-
-```bash
-rune [BEFEHL] [OPTIONEN]
-```
-
-Ohne Befehl öffnet RUNE die interaktive REPL-Shell.
-
-## Befehle
-
-### Verschlüsselung
-
+# CLI Referenz
+## Verschlüsselung
 | Befehl | Beschreibung |
 |---|---|
-| `init [passwort]` | Verschlüsselung initialisieren |
-| `unlock <passwort>` | Verschlüsselung entsperren (Daemon erforderlich) |
-
-### Daemon
-
+| `init` | Verschlüsselung initialisieren |
+| `unlock <passwort>` | Verschlüsselung entsperren |
+## Daemon
 | Befehl | Beschreibung |
 |---|---|
 | `daemon start` | Daemon im Hintergrund starten |
-| `daemon foreground` | Daemon im Vordergrund starten (Debug) |
 | `daemon stop` | Daemon stoppen |
-| `daemon status` | Prüfen, ob der Daemon läuft |
-
-### Prozesse
-
+| `daemon status` | Daemon-Status prüfen |
+## Prozesse
 | Befehl | Beschreibung |
 |---|---|
-| `start <name> [--container <id>] -- <befehl>` | Verwalteten Prozess starten |
-| `stop <name>` | Verwalteten Prozess stoppen |
-| `restart <name>` | Verwalteten Prozess neu starten |
-| `list` | Alle verwalteten Prozesse auflisten |
-| `status <name>` | Prozessdetails anzeigen |
+| `start <name> -- <befehl>` | Prozess starten |
+| `stop <name>` | Prozess stoppen |
+| `list` | Alle Prozesse auflisten |
 | `logs <name> [zeilen]` | Prozesslogs anzeigen |
-
-### Container
-
+## Capsules
 | Befehl | Beschreibung |
 |---|---|
-| `container create <name> --type permanent\|temporary [--template <tpl>] [--] <befehl>` | Container erstellen |
-| `container start <id>` | Container starten |
-| `container stop <id>` | Container stoppen |
-| `container restart <id>` | Container neu starten |
-| `container list` | Alle Container auflisten |
-| `container status <id>` | Containerdetails anzeigen |
-| `container destroy <id>` | Container endgültig löschen |
-| `container logs <id> [zeilen]` | Containerlogs anzeigen |
-| `container exec <id> -- <befehl>` | Befehl in einem Container ausführen |
-
-### Templates
-
+| `capsule create <name> --type permanent|temporary -- <befehl>` | Erstellen |
+| `capsule start <id>` | Starten |
+| `capsule stop <id>` | Stoppen |
+| `capsule list` | Alle auflisten |
+| `capsule destroy <id>` | Löschen |
+| `capsule exec <id> -- <befehl>` | Befehl ausführen |
+## Plugins
 | Befehl | Beschreibung |
 |---|---|
-| `template list` | Verfügbare Templates auflisten |
-| `template create <name> <pfad>` | Template aus einem Verzeichnis erstellen |
-
-### Service
-
-| Befehl | Beschreibung |
-|---|---|
-| `install` | Als Systemdienst installieren |
-| `uninstall` | Systemdienst entfernen |
+| `plugin install <name> [--url <url>]` | Plugin installieren |
+| `plugin list` | Installierte auflisten |
+| `plugin info <name>` | Details anzeigen |
+| `plugin disable <name>` | Deaktivieren |
+| `plugin enable <name>` | Aktivieren |
+| `plugin remove <name>` | Entfernen |

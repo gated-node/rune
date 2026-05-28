@@ -1,0 +1,18 @@
+# Rust
+target/
+Cargo.lock
+*.rs.bk
+
+# macOS
+.DS_Store
+*.swp
+*.swo
+
+# Editor
+.vscode/
+.idea/
+*.iml
+
+# Build artifacts
+*.tar.gz
+*.zip

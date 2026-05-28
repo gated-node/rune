@@ -1,5 +1,17 @@
 {
   "version": "1.0.0",
-  "official": [],
-  "community": []
+  "official": [
+    {
+      "name": "hello-world",
+      "description": "Example RUNE plugin demonstrating the plugin API",
+      "version": "0.1.0",
+      "url": "https://github.com/gated-node/rune-plugins",
+      "checksum": ""
+    }
+  ],
+  "community": [],
+  "metadata": {
+    "registry_url": "https://raw.githubusercontent.com/gated-node/rune/main/plugins/registry.json",
+    "updated": "2026-05-28"
+  }
 }

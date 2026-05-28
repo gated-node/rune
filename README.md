@@ -1,56 +1,41 @@
 # RUNE
 
-**Runtime Unix Node Environment** — Process Manager Shell & Container Runtime
+**Runtime Unix Node Environment** — Process Manager · Capsule Runtime · Plugin Host
 
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Rust](https://img.shields.io/badge/rust-1.85+-orange)](https://www.rust-lang.org)
-[![Release](https://img.shields.io/github/v/release/talbergh/rune)](https://github.com/talbergh/rune/releases)
+[![CI](https://github.com/gated-node/rune-build/actions/workflows/ci.yml/badge.svg)](https://github.com/gated-node/rune-build/actions/workflows/ci.yml)
 
-> Inspired by the mystical runes of old — small symbols that hold great power.  
-> RUNE gives every process its own isolated, encrypted container environment.
-
-RUNE is a lightweight process manager shell with integrated container runtime.
-It starts, monitors, and auto-restarts processes — each one running in its own
-encrypted, hardware-bound, time-secured container environment.
+RUNE is a lightweight process manager with an integrated capsule runtime and plugin host.
+Every process runs in its own isolated, encrypted capsule environment with
+hardware-bound time codes and automatic restarts.
 
 ## Quick Install
 
 ```bash
-curl -fsSL https://github.com/talbergh/rune/releases/latest/download/rune-install.sh | sh
+curl -fsSL https://github.com/gated-node/rune/releases/latest/download/rune-install.sh | sh
 ```
-
-Or download a binary from the [releases page](https://github.com/talbergh/rune/releases).
 
 ## Quick Start
 
 ```bash
-# Initialize encryption (hardware + time-based, no password needed)
-rune init
-
-# Start the daemon
-rune daemon start
-
-# Create and start a container
-rune container create myapp --type permanent -- node app.js
-rune container start myapp
-
-# Start an isolated process (auto-container)
-rune start myapp -- node app.js
-
-# Interactive shell
-rune
+rune init                    # Initialize encryption
+rune daemon start            # Start the daemon
+rune capsule create myapp --type permanent -- node app.js
+rune capsule start myapp
+rune                          # Interactive REPL
 ```
 
-## Key Features
+## Features
 
 | Feature | Description |
 |---|---|
 | **Hardware Encryption** | AES-256-GCM + machine-bound TOTP time codes |
-| **Auto-Containers** | Every process gets its own temp container by default |
+| **Capsule Runtime** | Isolated encrypted containers for processes |
+| **Plugin Host** | WASM-based plugin system with registry |
 | **Auto-Restart** | Exponential backoff with configurable policies |
-| **Zero-Config** | Works out of the box, no platform keychains needed |
-| **Shell & CLI** | Full interactive REPL and direct command-line interface |
-| **Templates** | Reusable container filesystem templates |
+| **Cross-Platform** | macOS sandbox + Linux namespaces |
+| **Shell & CLI** | Full interactive REPL and direct CLI |
 
 ## Documentation
 
@@ -62,10 +47,9 @@ rune
 ## Build from Source
 
 ```bash
-git clone https://github.com/talbergh/rune
-cd rune
+git clone https://github.com/gated-node/rune-build
+cd rune-build
 cargo build --release
-./target/release/rune --help
 ```
 
 ## License

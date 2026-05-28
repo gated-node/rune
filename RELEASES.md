@@ -6,18 +6,18 @@ Initial release of RUNE.
 
 ### Features
 - Hardware-bound AES-256-GCM encryption with custom TOTP time codes
-- Container runtime with permanent and temporary container types
+- Capsule runtime with permanent and temporary types
 - Process manager with auto-restart and exponential backoff
 - Interactive REPL shell with full command set
-- Template system for reusable container filesystems
-- Auto-unlock on daemon start (password-less when no password set)
-- Per-container encrypted data directories
-- macOS launchd and Linux systemd service support
+- WASM-based plugin host with registry and CLI commands
+- Cross-platform isolation: macOS sandbox (Seatbelt) + Linux namespaces
+- Plugin CLI command system
+- Reusable capsule templates with variable substitution
 
 ### Commands
 - `init`, `unlock` — encryption management
-- `start`, `stop`, `restart`, `list`, `status`, `logs` — process management
-- `container create|start|stop|restart|list|status|destroy|logs|exec` — container management
-- `template list|create` — template management
-- `daemon start|stop|status|foreground` — daemon control
-- `clear`, `help`, `exit` — shell utilities
+- `start`, `stop`, `restart`, `list`, `status`, `logs` — process mgmt
+- `capsule create|start|stop|restart|list|status|destroy|logs|exec|template`
+- `template list|create`
+- `daemon start|stop|status|foreground`
+- `plugin install|list|info|disable|enable|remove`
